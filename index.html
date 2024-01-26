@@ -16,10 +16,13 @@
             <label id="sum"></label>
         </section>
         <script>
-            function add(){
-                let num1 = document.getElementById("number1");
-                let num2 = document.getElementById("number2");
-                let sum = Number(num1.value) + Number(num2.value);
+            async function add(){
+                const num = document.getElementById("number1");
+                const mum = document.getElementById("number2");
+                let n = num.value;
+                let m = mum.value;
+                const response = await fetch("http://localhost:3000/add/"+ n + "/" + m);
+                const sum = await response.json();
                 document.getElementById("sum").innerText = sum;
             }
         </script>
