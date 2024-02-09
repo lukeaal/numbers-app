@@ -29,7 +29,7 @@
                 const mum = document.getElementById("number2");
                 let n = num.value;
                 let m = mum.value;
-                const response = await fetch("https://arithmetic-service-lukeaal.onrender.com/sub/"+ n + "/" + m);
+                const response = await fetch("https://arithmetic-service-lukeaal.onrender.com/add/"+ n + "/" + m);
                 const sum = await response.json();
                 document.getElementById("sum").innerText = sum;
             }
