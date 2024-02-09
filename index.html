@@ -14,6 +14,14 @@
             <input id="number2"/> 
             <button onclick="add()">=</button>
             <label id="sum"></label>
+            <p></p>
+            <input id="number1_sub"/> 
+            <label>-</label>
+            <input id="number2_sub"/> 
+            <button onclick="subtract()">=</button>
+            <label id="sum_sub"></label>
+
+
         </section>
         <script>
             async function add(){
@@ -24,6 +32,15 @@
                 const response = await fetch("http://localhost:3000/add/"+ n + "/" + m);
                 const sum = await response.json();
                 document.getElementById("sum").innerText = sum;
+            }
+            async function subtract(){
+                const num = document.getElementById("number1_sub");
+                const mum = document.getElementById("number2_sub");
+                let n = num.value;
+                let m = mum.value;
+                const response = await fetch("http://localhost:3000/sub/"+ n + "/" + m);
+                const sum = await response.json();
+                document.getElementById("sum_sub").innerText = sum;
             }
         </script>
     </body>
