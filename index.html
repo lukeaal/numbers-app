@@ -39,8 +39,8 @@
                 let n = num.value;
                 let m = mum.value;
                 const response = await fetch("http://localhost:3000/sub/"+ n + "/" + m);
-                const sum = await response.json();
-                document.getElementById("sum_sub").innerText = sum;
+                const sum_sub = await response.json();
+                document.getElementById("sum_sub").innerText = sum_sub;
             }
         </script>
     </body>
