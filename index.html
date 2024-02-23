@@ -5,8 +5,23 @@
         <title>
             Arithmetic
         </title>
+        <style>
+            .column {
+               float: left;
+               width: 50%;
+               padding: 10px;
+               box-sizing: border-box;
+              
+            }
+            .row::after {
+               content: "";
+               clear: both;
+               display: table;
+            }
+         </style>
     </head>
     <body>
+        <div>
         <section>
             <h2>Arithmetic</h2>
             <input id="number1"/> 
@@ -21,8 +36,19 @@
             <button onclick="subtract()">=</button>
             <label id="sum_sub"></label>
 
-
+            
         </section>
+    </div>
+        <div class="column">
+            <section>
+                <h2>Prime check</h2>                
+                <label>Number to test:</label>
+                <input id="numberToTest"/>
+                <button onclick="isPrime()">Check</button>
+                <label id="primeCheckResult"></label>  
+            </section>           
+        </div> 
+
         <script>
             async function add(){
                 const num = document.getElementById("number1");
@@ -42,6 +68,13 @@
                 const sum_sub = await response.json();
                 document.getElementById("sum_sub").innerText = sum_sub;
             }
+            async function isPrime() {
+                const numberToTest = document.getElementById("numberToTest");            
+                let n = numberToTest.value;            
+                const response = await fetch("https://primes-service-lukeaal.onrender.com/primes/" + n);
+                const result = await response.json();
+                document.getElementById("primeCheckResult").innerText = result;
+        }
         </script>
     </body>
 </html>
